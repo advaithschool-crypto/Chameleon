@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Group Members</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+
+            background:
+                radial-gradient(circle at 15% 20%, #d9f99d 0%, transparent 30%),
+                radial-gradient(circle at 85% 20%, #a7f3d0 0%, transparent 30%),
+                radial-gradient(circle at 50% 100%, #bfdbfe 0%, transparent 40%),
+                linear-gradient(135deg, #f0fdf4, #ecfeff, #eff6ff);
+
+            padding: 50px 25px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 42px;
+            color: #12372a;
+            margin-bottom: 35px;
+            letter-spacing: 2px;
+        }
+
+        /* Captain & Vice Captain */
+
+        .leaders {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            margin-bottom: 45px;
+            flex-wrap: wrap;
+        }
+
+        .leader {
+            width: 280px;
+            padding: 25px 20px;
+            border-radius: 22px;
+            color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .captain {
+            background: linear-gradient(135deg, #ff8a00, #ff3d00);
+        }
+
+        .vice-captain {
+            background: linear-gradient(135deg, #7b2ff7, #f107a3);
+        }
+
+        .leader-title {
+            font-size: 15px;
+            font-weight: bold;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .leader-name {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        /* Members */
+
+        .members {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .member {
+            padding: 22px;
+            border-radius: 18px;
+
+            background: rgba(255, 255, 255, 0.65);
+            backdrop-filter: blur(10px);
+
+            border: 1px solid rgba(255, 255, 255, 0.8);
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+
+            font-size: 21px;
+            font-weight: 600;
+            color: #183b2b;
+
+            transition: 0.3s ease;
+        }
+
+        .member:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+        }
+
+        /* Back button */
+
+        .back-button {
+            margin-top: 40px;
+            padding: 13px 28px;
+
+            border: none;
+            border-radius: 30px;
+
+            background: #12372a;
+            color: white;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .back-button:hover {
+            transform: scale(1.05);
+            background: #1f6048;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            h1 {
+                font-size: 32px;
+            }
+
+            .members {
+                grid-template-columns: 1fr;
+            }
+
+            .leader {
+                width: 100%;
+                max-width: 320px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>OUR GROUP MEMBERS</h1>
+
+        <!-- Leaders -->
+
+        <div class="leaders">
+
+            <div class="leader captain">
+                <div class="leader-title">CAPTAIN</div>
+                <div class="leader-name">Ganesh</div>
+            </div>
+
+            <div class="leader vice-captain">
+                <div class="leader-title">VICE CAPTAIN</div>
+                <div class="leader-name">Amy</div>
+            </div>
+
+        </div>
+
+        <!-- Members -->
+
+        <div class="members">
+
+            <div class="member">Abhinesh</div>
+
+            <div class="member">Amitha</div>
+
+            <div class="member">Anooja</div>
+
+            <div class="member">Anto Jolly</div>
+
+            <div class="member">Inzam </div>
+
+            <div class="member">Advaith </div>
+
+        </div>
+
+        <button class="back-button" onclick="window.location.href='index.html'">
+            ← Back to Chameleon
+        </button>
+
+    </div>
+
+</body>
+</html>

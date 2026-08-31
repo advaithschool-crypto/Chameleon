@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chameleon</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+
+            /* Pleasant colourful background */
+            background:
+                radial-gradient(circle at 20% 30%, #d9f99d 0%, transparent 35%),
+                radial-gradient(circle at 80% 25%, #a7f3d0 0%, transparent 35%),
+                radial-gradient(circle at 50% 90%, #bfdbfe 0%, transparent 40%),
+                linear-gradient(135deg, #f0fdf4, #ecfeff, #eff6ff);
+        }
+
+        .home {
+            width: 100%;
+            height: 100%;
+
+            background-image: url("Chameleon-webpage.png");
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+
+            position: relative;
+        }
+
+        /* GROUP MEMBERS BUTTON */
+
+        .members-button {
+            position: absolute;
+
+            right: 7%;
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            padding: 16px 28px;
+
+            font-size: 18px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+
+            color: white;
+
+            background: linear-gradient(
+                135deg,
+                #16a085,
+                #27ae60,
+                #8bc34a
+            );
+
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 35px;
+
+            box-shadow:
+                0 8px 25px rgba(22, 160, 133, 0.35),
+                0 0 20px rgba(139, 195, 74, 0.25);
+
+            cursor: pointer;
+
+            transition: all 0.3s ease;
+        }
+
+        .members-button:hover {
+            transform: translateY(-50%) scale(1.07);
+
+            box-shadow:
+                0 12px 30px rgba(22, 160, 133, 0.5),
+                0 0 30px rgba(139, 195, 74, 0.35);
+        }
+
+        .members-button:active {
+            transform: translateY(-50%) scale(0.98);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="home">
+
+        <button class="members-button" onclick="window.location.href='members.html'">
+    Click for Our Group Members
+</button>
+
+    </div>
+
+</body>
+</html>
