@@ -38,7 +38,9 @@
             letter-spacing: 2px;
         }
 
-        /* Captain & Vice Captain */
+        /* =========================
+           CAPTAIN & VICE CAPTAIN
+           ========================= */
 
         .leaders {
             display: flex;
@@ -49,11 +51,13 @@
         }
 
         .leader {
-            width: 280px;
+            width: 300px;
             padding: 25px 20px;
             border-radius: 22px;
             color: white;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.15);
         }
 
         .captain {
@@ -64,11 +68,35 @@
             background: linear-gradient(135deg, #7b2ff7, #f107a3);
         }
 
+        /* Leader photos */
+
+        .leader-photo {
+            width: 150px;
+            height: 150px;
+
+            object-fit: cover;
+
+            border-radius: 50%;
+
+            border: 5px solid white;
+
+            margin-bottom: 18px;
+
+            box-shadow:
+                0 6px 18px rgba(0, 0, 0, 0.25);
+        }
+
         .leader-title {
             font-size: 15px;
             font-weight: bold;
             letter-spacing: 2px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
+        }
+
+        .leader-designation {
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 8px;
         }
 
         .leader-name {
@@ -76,7 +104,9 @@
             font-weight: bold;
         }
 
-        /* Members */
+        /* =========================
+           OTHER MEMBERS
+           ========================= */
 
         .members {
             display: grid;
@@ -86,17 +116,18 @@
 
         .member {
             padding: 22px;
+
             border-radius: 18px;
 
             background: rgba(255, 255, 255, 0.65);
+
             backdrop-filter: blur(10px);
 
             border: 1px solid rgba(255, 255, 255, 0.8);
 
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.08);
 
-            font-size: 21px;
-            font-weight: 600;
             color: #183b2b;
 
             transition: 0.3s ease;
@@ -104,13 +135,30 @@
 
         .member:hover {
             transform: translateY(-5px) scale(1.02);
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
+
+            box-shadow:
+                0 12px 28px rgba(0, 0, 0, 0.14);
         }
 
-        /* Back button */
+        .member-name {
+            font-size: 21px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .member-role {
+            font-size: 16px;
+            font-weight: 500;
+            color: #39705a;
+        }
+
+        /* =========================
+           BACK BUTTON
+           ========================= */
 
         .back-button {
             margin-top: 40px;
+
             padding: 13px 28px;
 
             border: none;
@@ -123,6 +171,7 @@
             font-weight: bold;
 
             cursor: pointer;
+
             transition: 0.3s ease;
         }
 
@@ -131,21 +180,57 @@
             background: #1f6048;
         }
 
-        /* Mobile */
+        /* =========================
+           MOBILE
+           ========================= */
 
         @media (max-width: 600px) {
 
-            h1 {
-                font-size: 32px;
+            body {
+                padding: 30px 15px;
             }
 
-            .members {
-                grid-template-columns: 1fr;
+            h1 {
+                font-size: 30px;
+                margin-bottom: 25px;
+            }
+
+            .leaders {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+                margin-bottom: 30px;
             }
 
             .leader {
                 width: 100%;
-                max-width: 320px;
+                max-width: 330px;
+            }
+
+            .leader-photo {
+                width: 130px;
+                height: 130px;
+            }
+
+            .leader-name {
+                font-size: 25px;
+            }
+
+            .members {
+                grid-template-columns: 1fr;
+                gap: 15px;
+            }
+
+            .member {
+                padding: 20px;
+            }
+
+            .member-name {
+                font-size: 20px;
+            }
+
+            .member-role {
+                font-size: 15px;
             }
         }
     </style>
@@ -157,42 +242,142 @@
 
         <h1>OUR GROUP MEMBERS</h1>
 
-        <!-- Leaders -->
+        <!-- CAPTAIN & VICE CAPTAIN -->
 
         <div class="leaders">
 
+            <!-- GANESH -->
+
             <div class="leader captain">
-                <div class="leader-title">CAPTAIN</div>
-                <div class="leader-name">Ganesh</div>
+
+                <img
+                    src="ganesh.jpg"
+                    alt="Ganesh"
+                    class="leader-photo"
+                >
+
+                <div class="leader-title">
+                    CAPTAIN
+                </div>
+
+                <div class="leader-name">
+                    Ganesh
+                </div>
+
+                <div class="leader-designation">
+                    School Vice Captain
+                </div>
+
             </div>
 
+
+            <!-- AMY -->
+
             <div class="leader vice-captain">
-                <div class="leader-title">VICE CAPTAIN</div>
-                <div class="leader-name">Amy</div>
+
+                <img
+                    src="amy.jpg"
+                    alt="Amy"
+                    class="leader-photo"
+                >
+
+                <div class="leader-title">
+                    VICE CAPTAIN
+                </div>
+
+                <div class="leader-name">
+                    Amy
+                </div>
+
+                <div class="leader-designation">
+                    Writer
+                </div>
+
             </div>
 
         </div>
 
-        <!-- Members -->
+
+        <!-- ALL OTHER MEMBERS -->
 
         <div class="members">
 
-            <div class="member">Abhinesh</div>
+            <div class="member">
+                <div class="member-name">
+                    Abhinesh
+                </div>
 
-            <div class="member">Amitha</div>
+                <div class="member-role">
+                    District Level Athlete
+                </div>
+            </div>
 
-            <div class="member">Anooja</div>
 
-            <div class="member">Anto Jolly</div>
+            <div class="member">
+                <div class="member-name">
+                    Amitha
+                </div>
 
-            <div class="member">Inzam </div>
+                <div class="member-role">
+                    E-Commerce
+                </div>
+            </div>
 
-            <div class="member">Advaith </div>
+
+            <div class="member">
+                <div class="member-name">
+                    Anooja
+                </div>
+
+                <div class="member-role">
+                    Process Associate in TCS
+                </div>
+            </div>
+
+
+            <div class="member">
+                <div class="member-name">
+                    Anto Jolly
+                </div>
+
+                <div class="member-role">
+                    Skating & Hockey
+                </div>
+            </div>
+
+
+            <div class="member">
+                <div class="member-name">
+                    Inzam
+                </div>
+
+                <div class="member-role">
+                    Entrepreneur
+                </div>
+            </div>
+
+
+            <div class="member">
+                <div class="member-name">
+                    Advaith
+                </div>
+
+                <div class="member-role">
+                    Cricketer & Film Critic
+                </div>
+            </div>
 
         </div>
 
-        <button class="back-button" onclick="window.location.href='index.html'">
+
+        <!-- BACK BUTTON -->
+
+        <button
+            class="back-button"
+            onclick="window.location.href='index.html'">
+
             ← Back to Chameleon
+
         </button>
 
     </div>
