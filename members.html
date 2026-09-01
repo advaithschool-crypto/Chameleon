@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Our Group Members</title>
 
     <style>
@@ -39,8 +40,8 @@
         }
 
         /* =========================
-           CAPTAIN & VICE CAPTAIN
-           ========================= */
+           LEADERS
+        ========================= */
 
         .leaders {
             display: flex;
@@ -51,13 +52,18 @@
         }
 
         .leader {
-            width: 300px;
+            width: 280px;
             padding: 25px 20px;
             border-radius: 22px;
             color: white;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 
-            box-shadow:
-                0 10px 25px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .leader:hover {
+            transform: translateY(-6px) scale(1.02);
         }
 
         .captain {
@@ -68,27 +74,18 @@
             background: linear-gradient(135deg, #7b2ff7, #f107a3);
         }
 
-        .leader-photo {
-            width: 150px;
-            height: 150px;
+        .leader img {
+            width: 120px;
+            height: 120px;
 
             object-fit: cover;
+
             border-radius: 50%;
+            border: 4px solid white;
 
-            border: 5px solid white;
+            margin-bottom: 15px;
 
-            margin-bottom: 18px;
-
-            box-shadow:
-                0 6px 18px rgba(0, 0, 0, 0.25);
-
-            cursor: pointer;
-
-            transition: transform 0.3s ease;
-        }
-
-        .leader-photo:hover {
-            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.25);
         }
 
         .leader-title {
@@ -101,17 +98,17 @@
         .leader-name {
             font-size: 27px;
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
         }
 
         .leader-designation {
-            font-size: 16px;
-            font-weight: 500;
+            font-size: 17px;
         }
 
+
         /* =========================
-           OTHER MEMBERS
-           ========================= */
+           MEMBERS
+        ========================= */
 
         .members {
             display: grid;
@@ -120,7 +117,7 @@
         }
 
         .member {
-            padding: 22px;
+            padding: 25px;
             border-radius: 18px;
 
             background: rgba(255, 255, 255, 0.65);
@@ -128,59 +125,49 @@
 
             border: 1px solid rgba(255, 255, 255, 0.8);
 
-            box-shadow:
-                0 8px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 
-            color: #183b2b;
+            cursor: pointer;
 
             transition: 0.3s ease;
         }
 
         .member:hover {
             transform: translateY(-5px) scale(1.02);
-
-            box-shadow:
-                0 12px 28px rgba(0, 0, 0, 0.14);
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.14);
         }
 
-        .member-photo {
+        .member img {
             width: 120px;
             height: 120px;
 
             object-fit: cover;
-            border-radius: 50%;
 
+            border-radius: 50%;
             border: 4px solid white;
 
-            margin-bottom: 15px;
+            margin-bottom: 12px;
 
-            box-shadow:
-                0 5px 15px rgba(0, 0, 0, 0.18);
-
-            cursor: pointer;
-
-            transition: transform 0.3s ease;
-        }
-
-        .member-photo:hover {
-            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.15);
         }
 
         .member-name {
-            font-size: 21px;
-            font-weight: 700;
-            margin-bottom: 8px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #183b2b;
+
+            margin-bottom: 7px;
         }
 
-        .member-role {
+        .member-designation {
             font-size: 16px;
-            font-weight: 500;
-            color: #39705a;
+            color: #315b48;
         }
+
 
         /* =========================
            BACK BUTTON
-           ========================= */
+        ========================= */
 
         .back-button {
             margin-top: 40px;
@@ -197,6 +184,7 @@
             font-weight: bold;
 
             cursor: pointer;
+
             transition: 0.3s ease;
         }
 
@@ -205,86 +193,125 @@
             background: #1f6048;
         }
 
-        /* =========================
-           PHOTO POPUP / LIGHTBOX
-           ========================= */
 
-        .photo-popup {
+        /* =========================
+           POPUP / MODAL
+        ========================= */
+
+        .modal {
             display: none;
 
             position: fixed;
             z-index: 9999;
 
-            top: 0;
-            left: 0;
+            inset: 0;
 
-            width: 100%;
-            height: 100%;
-
-            background: rgba(0, 0, 0, 0.85);
+            background: rgba(0, 0, 0, 0.82);
 
             justify-content: center;
             align-items: center;
 
-            padding: 30px;
+            padding: 20px;
         }
 
-        .photo-popup.active {
+        .modal.show {
             display: flex;
         }
 
-        .popup-photo {
-            max-width: 90vw;
-            max-height: 85vh;
+        .modal-content {
+            position: relative;
 
-            width: auto;
-            height: auto;
+            width: min(90vw, 500px);
+            max-height: 92vh;
+
+            overflow-y: auto;
+
+            background: white;
+
+            border-radius: 25px;
+
+            padding: 25px;
+
+            text-align: center;
+
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+
+            animation: popup 0.25s ease;
+        }
+
+        @keyframes popup {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .modal-image {
+            width: 100%;
+            max-height: 65vh;
 
             object-fit: contain;
 
-            border-radius: 15px;
+            border-radius: 18px;
 
-            border: 4px solid white;
+            display: block;
 
-            box-shadow:
-                0 10px 40px rgba(0, 0, 0, 0.5);
+            margin: auto;
+        }
+
+        .modal-name {
+            margin-top: 18px;
+
+            font-size: 30px;
+            font-weight: bold;
+
+            color: #12372a;
+        }
+
+        .modal-designation {
+            margin-top: 8px;
+
+            font-size: 19px;
+
+            color: #315b48;
         }
 
         .close-button {
             position: absolute;
 
-            top: 20px;
-            right: 30px;
+            top: 10px;
+            right: 15px;
 
-            width: 50px;
-            height: 50px;
+            width: 42px;
+            height: 42px;
 
             border: none;
             border-radius: 50%;
 
-            background: white;
-            color: #12372a;
+            background: rgba(0,0,0,0.7);
 
-            font-size: 30px;
-            font-weight: bold;
+            color: white;
+
+            font-size: 25px;
 
             cursor: pointer;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            box-shadow:
-                0 5px 20px rgba(0, 0, 0, 0.3);
+            z-index: 10;
         }
 
         .close-button:hover {
-            transform: scale(1.1);
+            background: black;
         }
+
 
         /* =========================
            MOBILE
-           ========================= */
+        ========================= */
 
         @media (max-width: 600px) {
 
@@ -293,375 +320,300 @@
             }
 
             h1 {
-                font-size: 30px;
-                margin-bottom: 25px;
+                font-size: 32px;
+                margin-bottom: 28px;
             }
 
             .leaders {
                 flex-direction: column;
                 align-items: center;
-                gap: 20px;
-                margin-bottom: 30px;
             }
 
             .leader {
                 width: 100%;
-                max-width: 330px;
-            }
-
-            .leader-photo {
-                width: 130px;
-                height: 130px;
-            }
-
-            .leader-name {
-                font-size: 25px;
+                max-width: 340px;
             }
 
             .members {
                 grid-template-columns: 1fr;
-                gap: 15px;
             }
 
             .member {
-                padding: 20px;
+                width: 100%;
             }
 
-            .member-photo {
-                width: 105px;
-                height: 105px;
+            .modal {
+                padding: 12px;
             }
 
-            .member-name {
-                font-size: 20px;
+            .modal-content {
+                width: 95vw;
+                padding: 18px;
             }
 
-            .member-role {
-                font-size: 15px;
+            .modal-image {
+                max-height: 60vh;
             }
 
-            .back-button {
-                margin-bottom: 20px;
+            .modal-name {
+                font-size: 25px;
             }
 
-            .photo-popup {
-                padding: 15px;
-            }
-
-            .popup-photo {
-                max-width: 95vw;
-                max-height: 80vh;
-                border-radius: 10px;
-            }
-
-            .close-button {
-                top: 15px;
-                right: 15px;
-
-                width: 45px;
-                height: 45px;
-
-                font-size: 27px;
+            .modal-designation {
+                font-size: 17px;
             }
         }
     </style>
 </head>
 
+
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <h1>OUR GROUP MEMBERS</h1>
+    <h1>OUR GROUP MEMBERS</h1>
 
-        <!-- =========================
-             CAPTAIN & VICE CAPTAIN
-             ========================= -->
 
-        <div class="leaders">
+    <!-- =========================
+         CAPTAIN & VICE CAPTAIN
+    ========================= -->
 
-            <!-- GANESH -->
+    <div class="leaders">
 
-            <div class="leader captain">
+        <div class="leader captain"
+             onclick="openModal('ganesh.jpg', 'Ganesh', 'School Vice Captain')">
 
-                <img
-                    src="ganesh.jpg"
-                    alt="Ganesh"
-                    class="leader-photo"
-                    onclick="openPhoto(this.src)"
-                >
+            <img src="ganesh.jpg" alt="Ganesh">
 
-                <div class="leader-title">
-                    CAPTAIN
-                </div>
-
-                <div class="leader-name">
-                    Ganesh
-                </div>
-
-                <div class="leader-designation">
-                    School Vice Captain
-                </div>
-
+            <div class="leader-title">
+                CAPTAIN
             </div>
 
+            <div class="leader-name">
+                Ganesh
+            </div>
 
-            <!-- AMY -->
-
-            <div class="leader vice-captain">
-
-                <img
-                    src="amy.jpg"
-                    alt="Amy"
-                    class="leader-photo"
-                    onclick="openPhoto(this.src)"
-                >
-
-                <div class="leader-title">
-                    VICE CAPTAIN
-                </div>
-
-                <div class="leader-name">
-                    Amy
-                </div>
-
-                <div class="leader-designation">
-                    Writer
-                </div>
-
+            <div class="leader-designation">
+                School Vice Captain
             </div>
 
         </div>
 
 
-        <!-- =========================
-             ALL OTHER MEMBERS
-             ========================= -->
+        <div class="leader vice-captain"
+             onclick="openModal('amy.jpg', 'Amy', 'Writer')">
 
-        <div class="members">
+            <img src="amy.jpg" alt="Amy">
 
-            <!-- ABHINESH -->
-
-            <div class="member">
-
-                <img
-                    src="abhinesh.jpg"
-                    alt="Abhinesh"
-                    class="member-photo"
-                    onclick="openPhoto(this.src)"
-                >
-
-                <div class="member-name">
-                    Abhinesh
-                </div>
-
-                <div class="member-role">
-                    District Level Athlete
-                </div>
-
+            <div class="leader-title">
+                VICE CAPTAIN
             </div>
 
-
-            <!-- AMITHA -->
-
-            <div class="member">
-
-                <img
-                    src="amitha.jpg"
-                    alt="Amitha"
-                    class="member-photo"
-                    onclick="openPhoto(this.src)"
-                >
-
-                <div class="member-name">
-                    Amitha
-                </div>
-
-                <div class="member-role">
-                    E-Commerce
-                </div>
-
+            <div class="leader-name">
+                Amy
             </div>
 
-
-            <!-- ANOOJA -->
-
-            <div class="member">
-
-                <img
-                    src="anooja.jpg"
-                    alt="Anooja"
-                    class="member-photo"
-                    onclick="openPhoto(this.src)"
-                >
-
-                <div class="member-name">
-                    Anooja
-                </div>
-
-                <div class="member-role">
-                    Process Associate in TCS
-                </div>
-
+            <div class="leader-designation">
+                Writer
             </div>
 
+        </div>
 
-            <!-- ANTO JOLLY -->
+    </div>
 
-            <div class="member">
 
-                <img
-                    src="antojolly.jpg"
-                    alt="Anto Jolly"
-                    class="member-photo"
-                    onclick="openPhoto(this.src)"
-                >
+    <!-- =========================
+         OTHER MEMBERS
+    ========================= -->
 
-                <div class="member-name">
-                    Anto Jolly
-                </div>
+    <div class="members">
 
-                <div class="member-role">
-                    Skating & Hockey
-                </div>
 
+        <div class="member"
+             onclick="openModal('abhinesh.jpg', 'Abhinesh', 'District Level Athlete')">
+
+            <img src="abhinesh.jpg" alt="Abhinesh">
+
+            <div class="member-name">
+                Abhinesh
             </div>
 
-
-            <!-- INZAM -->
-
-            <div class="member">
-
-                <img
-                    src="inzam.jpg"
-                    alt="Inzam"
-                    class="member-photo"
-                    onclick="openPhoto(this.src)"
-                >
-
-                <div class="member-name">
-                    Inzam
-                </div>
-
-                <div class="member-role">
-                    Entrepreneur
-                </div>
-
-            </div>
-
-
-            <!-- ADVAITH -->
-
-            <div class="member">
-
-                <img
-                    src="advaith.jpg"
-                    alt="Advaith"
-                    class="member-photo"
-                    onclick="openPhoto(this.src)"
-                >
-
-                <div class="member-name">
-                    Advaith
-                </div>
-
-                <div class="member-role">
-                    Cricketer & Film Critic
-                </div>
-
+            <div class="member-designation">
+                District Level Athlete
             </div>
 
         </div>
 
 
-        <!-- BACK BUTTON -->
+        <div class="member"
+             onclick="openModal('amitha.jpg', 'Amitha', 'E-Commerce')">
 
-        <button
-            class="back-button"
+            <img src="amitha.jpg" alt="Amitha">
+
+            <div class="member-name">
+                Amitha
+            </div>
+
+            <div class="member-designation">
+                E-Commerce
+            </div>
+
+        </div>
+
+
+        <div class="member"
+             onclick="openModal('anooja.jpg', 'Anooja', 'Process Associate in TCS')">
+
+            <img src="anooja.jpg" alt="Anooja">
+
+            <div class="member-name">
+                Anooja
+            </div>
+
+            <div class="member-designation">
+                Process Associate in TCS
+            </div>
+
+        </div>
+
+
+        <div class="member"
+             onclick="openModal('antojolly.jpg', 'Anto Jolly', 'Skating & Hockey')">
+
+            <img src="antojolly.jpg" alt="Anto Jolly">
+
+            <div class="member-name">
+                Anto Jolly
+            </div>
+
+            <div class="member-designation">
+                Skating & Hockey
+            </div>
+
+        </div>
+
+
+        <div class="member"
+             onclick="openModal('inzam.jpg', 'Inzam', 'Entrepreneur')">
+
+            <img src="inzam.jpg" alt="Inzam">
+
+            <div class="member-name">
+                Inzam
+            </div>
+
+            <div class="member-designation">
+                Entrepreneur
+            </div>
+
+        </div>
+
+
+        <div class="member"
+             onclick="openModal('advaith.jpg', 'Advaith', 'Cricketer and Film Critic')">
+
+            <img src="advaith.jpg" alt="Advaith">
+
+            <div class="member-name">
+                Advaith
+            </div>
+
+            <div class="member-designation">
+                Cricketer and Film Critic
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <button class="back-button"
             onclick="window.location.href='index.html'">
 
-            ← Back to Chameleon
+        ← Back to Chameleon
 
-        </button>
+    </button>
 
-    </div>
+</div>
 
 
-    <!-- =========================
-         PHOTO POPUP
-         ========================= -->
+<!-- =========================
+     PHOTO POPUP
+========================= -->
 
-    <div
-        class="photo-popup"
-        id="photoPopup"
-        onclick="closePhoto(event)"
-    >
+<div class="modal" id="photoModal">
 
-        <button
-            class="close-button"
-            onclick="closePhoto()">
+    <div class="modal-content">
+
+        <button class="close-button"
+                onclick="closeModal()">
+
             ×
+
         </button>
 
-        <img
-            id="popupPhoto"
-            class="popup-photo"
-            src=""
-            alt="Enlarged member photo"
-        >
+        <img id="modalImage"
+             class="modal-image"
+             src=""
+             alt="">
+
+        <div id="modalName"
+             class="modal-name">
+        </div>
+
+        <div id="modalDesignation"
+             class="modal-designation">
+        </div>
 
     </div>
 
-
-    <!-- =========================
-         JAVASCRIPT
-         ========================= -->
-
-    <script>
-
-        function openPhoto(photoSource) {
-
-            const popup = document.getElementById("photoPopup");
-            const popupPhoto = document.getElementById("popupPhoto");
-
-            popupPhoto.src = photoSource;
-
-            popup.classList.add("active");
-        }
+</div>
 
 
-        function closePhoto(event) {
+<script>
 
-            if (
-                !event ||
-                event.target.id === "photoPopup" ||
-                event.target.classList.contains("close-button")
-            ) {
+function openModal(image, name, designation) {
 
-                const popup = document.getElementById("photoPopup");
+    document.getElementById("modalImage").src = image;
 
-                popup.classList.remove("active");
+    document.getElementById("modalName").textContent = name;
 
-                document.getElementById("popupPhoto").src = "";
-            }
-        }
+    document.getElementById("modalDesignation").textContent = designation;
+
+    document.getElementById("photoModal").classList.add("show");
+
+}
 
 
-        /* Close popup with ESC key */
+function closeModal() {
 
-        document.addEventListener("keydown", function(event) {
+    document.getElementById("photoModal").classList.remove("show");
 
-            if (event.key === "Escape") {
+}
 
-                document
-                    .getElementById("photoPopup")
-                    .classList.remove("active");
 
-                document.getElementById("popupPhoto").src = "";
-            }
+// Close when clicking outside the white popup
 
-        });
+document.getElementById("photoModal").addEventListener("click", function(event) {
 
-    </script>
+    if (event.target === this) {
+        closeModal();
+    }
+
+});
+
+
+// Close with ESC key on laptop
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+        closeModal();
+    }
+
+});
+
+</script>
 
 </body>
 </html>
